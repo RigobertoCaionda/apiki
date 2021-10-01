@@ -12,7 +12,10 @@ import {
 		NextButton, ApikiCodeArea,
 		SliderWidth, Slider,
 		SliderImgContainer,	FormArea,
-		FormTitle1, FormTitle2
+		FormTitle1, FormTitle2,
+		TitlesContainer, FormContainer,
+		Form, InputArea,
+		SelectArea, Selects, ProgressBar, Progress
 	} from './styled';
 	import {Link} from 'react-router-dom';
 	import {useState, useRef, useEffect} from 'react';
@@ -20,6 +23,8 @@ const Page = () => {
 	let TotalImages;//Para ser global
 	const [margin, setMargin] = useState(0);
 	const [currentPhoto, setCurrentPhoto] = useState(1);
+	const [showMinus, setShowMinus] = useState(false);//Se mostra ou nao o botao
+	const [status, setStatus] = useState(false);//Para fazer que o useEffect se atualize sempre que aumentar um tr.
 	let SliderImgContainerWidth = useRef();//Tamanho da imagem
 	const [totImg, setTotImg] = useState(0);//Gambiarra para retornar o numero de imagens que temos
 	useEffect(()=>{
@@ -34,12 +39,12 @@ const Page = () => {
 	let currentSlide = useRef(0);//Eu podia simplesmente colocar que currentSlide = 5, mas coloquei num useRef para que nao seja rerenderizado
 	const handleNextClick = () => {
 		currentSlide.current++;
-		setCurrentPhoto(currentPhoto + 1);//Para mudar o display que mostra que foto esta a ser exibida
+		setCurrentPhoto(currentPhoto + 1);
 		if (currentSlide.current > (TotalImages - 1)) {
 			currentSlide.current = 0;
 			setCurrentPhoto(1);
 		}
-		updateMargin(currentSlide.current);//# entre useRef e useState, toda vez que vc usa um setState ha uma rerenderizacao
+		updateMargin(currentSlide.current);
 	}
 
 	const handlePrevClick = () => {
@@ -56,6 +61,58 @@ const Page = () => {
 		let tam = SliderImgContainerWidth.current.clientWidth;
 		let newMargin = currentSlide * tam;
 		setMargin(newMargin);
+	}
+
+	useEffect(()=>{
+		const botaoMais = document.querySelectorAll('.plus-less .plus--button');
+		const botaoMenos = document.querySelectorAll('.plus-less .less--button');
+		botaoMais.forEach((item)=>{
+			item.addEventListener("click", handlePlusClick);
+		});
+
+		botaoMenos.forEach((item)=>{
+			item.addEventListener("click", handleMinusClick);
+		});
+	},[status]);
+
+	const handlePlusClick = () => {
+		setShowMinus(true);
+		setStatus(!status);
+		let table = document.querySelector('table');
+		let tableRow = document.createElement("tr");
+		let td1 = document.createElement("td");
+		let td2 = document.createElement('td');
+		let td3 = document.createElement('td');
+		let input1 = document.createElement("input");
+		let input2 = document.createElement("input");
+		let div = document.createElement("div");
+		let div1 = document.createElement("div");
+		let div2 = document.createElement("div");
+		div.setAttribute("class", "plus-less");
+		div1.setAttribute("class", "plus--button");
+		div1.setAttribute('title', 'Adicionar linha');
+		div2.setAttribute("class", "less--button");
+		div2.setAttribute("title", "Remover linha");
+		div1.textContent = "+";
+		div2.textContent = "-";
+		div.appendChild(div1);
+		div.appendChild(div2);
+		td1.appendChild(input1);
+		td2.appendChild(input2);
+		td3.appendChild(div);
+		tableRow.appendChild(td1);
+		tableRow.appendChild(td2);
+		tableRow.appendChild(td3);
+		table.appendChild(tableRow);
+	}
+
+	const handleMinusClick = (e) => {
+		setStatus();
+		let totalCampos = document.querySelectorAll('.plus-less .plus--button').length;
+		let remTable = e.target.closest('tr');
+		if (totalCampos > 1) {
+			remTable.remove();
+		}
 	}
 
 	return (
@@ -144,6 +201,10 @@ const Page = () => {
 
 							</SliderWidth>
 
+							<ProgressBar>
+								<Progress currentPhoto={currentPhoto} totImg={totImg}></Progress>
+							</ProgressBar>
+
 							<OptArea>
 								<ShareArea></ShareArea>
 								<NextPreviousArea>
@@ -162,8 +223,111 @@ const Page = () => {
 				</ContainerSmall>
 
 				<FormArea>
-					<FormTitle1>Oportunidades de Carreira na Apiki</FormTitle1>
-					<FormTitle2>Chega mais, vem ser um Apiker!</FormTitle2>
+					<FormContainer>
+						<TitlesContainer>
+							<FormTitle1>Oportunidades de Carreira na Apiki</FormTitle1>
+							<FormTitle2>Chega mais, vem ser um Apiker!</FormTitle2>
+							<FormTitle1 style={{marginBottom: 25}}>Dados pessoais</FormTitle1>
+						</TitlesContainer>
+
+						<Form action="/apiker_page">
+							<InputArea>
+								<label>Seu nome completo*</label>
+								<input type="text" />
+								<label>Nome</label>
+							</InputArea>
+
+							<InputArea>
+								<label>E-mail*</label>
+								<input type="email" />
+							</InputArea>
+
+							<InputArea>
+								<label>Telefone com DDD*</label>
+								<input type="text" />
+							</InputArea>
+
+							<InputArea>
+								<label>URL do seu perfil no LinkedIn</label>
+								<input type="text" placeholder="https://"/>
+							</InputArea>
+
+							<InputArea>
+								<label>Seus perfis em outras redes sociais*</label>
+								<table border="1" cellSpacing="0">
+									<tr>
+										<th>Nome da rede social</th>
+										<th>Endereço do seu perfil</th>
+										<th></th>
+									</tr>
+
+									<tr>
+										<td><input type="text" /></td>
+										<td><input type="text" /></td>
+										<td>
+											<div className="plus-less">
+												<div className="plus--button" 
+													title="Adicionar linha">+</div>
+												{showMinus && <div className="less--button" 
+													title="Remover linha">-</div>}
+											</div>
+										</td>
+									</tr>
+
+								</table>
+							</InputArea>
+
+							<InputArea>
+								<label>Em qual Estado você reside atualmente?*</label>
+								<input type="text" />
+							</InputArea>
+
+							<InputArea>
+								<label>Em qual Cidade você reside atualmente?*</label>
+								<input type="text" />
+							</InputArea>
+
+							<SelectArea>
+								<h2>Função</h2>
+								<h4>Qual a vaga do seu interesse?*</h4>
+								<Selects>
+									<div className="checkbox--div">
+										<input type="checkbox" /> <span>Desenvolvedor Back-end</span>
+									</div>
+									<div className="checkbox--div">
+										<input type="checkbox" /> <span>Tech Lead</span>
+									</div>
+									<div className="checkbox--div">
+										<input type="checkbox" /> <span>DevOps</span>
+									</div>
+									<div className="checkbox--div">
+										<input type="checkbox" /> <span>Design Leadership (UX Manager)</span>
+									</div>
+									<div className="checkbox--div">
+										<input type="checkbox" /> <span>
+											Nenhuma. Me avise quando surgir uma oportunidade</span>
+									</div>
+								</Selects>
+								
+							</SelectArea>
+
+							<InputArea>
+								<label>Qual sua pretensão salarial?*</label>
+								<input type="text" />
+							</InputArea>
+
+							<InputArea>
+								<label>Envie seu Currículo*</label>
+								<input type="file" className="fileInput"/>
+								<small>
+									Tipos de arquivo aceitos: jpg, png, pdf, doc, Máx. tamanho do arquivo: 64 MB.</small>
+							</InputArea>
+
+							<InputArea className="buttonInput">
+								<button type="submit">Quero ser um Apiker!</button>
+							</InputArea>
+						</Form>
+					</FormContainer>
 				</FormArea>
 			</Container>
 		);

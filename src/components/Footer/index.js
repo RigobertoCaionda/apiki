@@ -1,6 +1,18 @@
+import {FooterArea} from './styled';
 const Page = () => {
 	return (
-			<div style={{height: 200, backgroundColor: '#2a2a2a'}}>Footer</div>
+			<FooterArea>
+				<div className="footer-top">
+					<div className="footer-container">
+						2021. Apiki WordPress. Todos os Direitos Reservados.
+					</div>
+				</div>
+				<div className="footer-bottom">
+					<div className="footer-container">
+						2021. Apiki WordPress. Todos os Direitos Reservados.
+					</div>
+				</div>
+			</FooterArea>
 		);
 }
 export default Page;

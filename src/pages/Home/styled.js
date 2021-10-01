@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-export const Container = styled.div`
-	
-`;
+export const Container = styled.div``;
 export const PageBanner = styled.div`
 	display: flex;
 	align-items: center;
@@ -107,9 +105,119 @@ export const FormArea = styled.div`
 	border-radius: 20px;
 	padding: 100px 0 80px 0;
 `;
-export const FormTitle1 = styled.h1`
-	text-align: center;
+export const FormTitle1 = styled.h2`
+	color: #808285;
+	font-weight: normal;
+	margin-bottom: 10px;
 `;
-export const FormTitle2 = styled.h2`
-	text-align: center;
+export const FormTitle2 = styled.h4`
+	font-weight: normal;
+	margin-bottom: 50px;
+	color: #a8a8a8;
+`;
+export const TitlesContainer = styled.div``;
+export const FormContainer = styled.div`
+	width: 850px;
+	margin: auto;
+`;
+export const Form = styled.form`
+	.buttonInput {
+		align-items: flex-end;
+		button {
+			width: 27%;
+			padding: 17px 30px;
+			font-size: 1rem;
+			color: #fff;
+			background-color: #e36000;
+			border: 0;
+			outline: 0;
+			border-radius: 12px;
+			cursor: pointer;
+		}
+		button: hover {
+			background-color: #800080;
+		}
+	}
+`;
+export const InputArea = styled.div`
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 20px;
+	label {
+		margin-bottom: 18px;
+		font-size: 1rem;
+		color: #a8a8a8;
+	}
+	input {
+		outline: 0;
+		padding: 17px;
+		border-radius: 10px;
+		border: 1px solid #e6e6e6;
+		font-size: 1rem;
+	}
+	.fileInput {
+		background-color: #fff;
+	}
+	small {
+		font-size: 0.9rem;
+		color: #a8a8a8;
+	}
+	table {
+		border-color: #dbdbdb;
+		th {
+			text-align: left;
+			padding: 10px;
+			color: #a8a8a8;
+		}
+	
+		td {
+			padding: 10px;
+			.plus-less {
+				display: flex;
+				align-items: center;
+				div {
+					width: 15px;
+					height: 15px;
+					border-radius: 50%;
+					border: 1px solid #000;
+					text-align: center;
+					line-height: 15px;
+					margin-right: 5px;
+					cursor: pointer;
+				}
+			}
+			input {
+				width: 100%;
+			}
+		}
+	}
+`;
+export const SelectArea = styled.div`
+	margin-bottom: 20px;
+	h2 {
+		color: #808285;
+		margin-bottom: 18px;
+	}
+	h4 {
+		font-weight: normal;
+		color: #a8a8a8;
+		margin-bottom: 18px;
+	}
+	span {
+		color: #a8a8a8;
+	}
+`;
+export const Selects = styled.div`
+	.checkbox--div {
+		margin-bottom: 3px;
+	}
+`;
+export const ProgressBar = styled.div`
+	background-color: #d0d6e6;
+	height: 8px;
+`;
+export const Progress = styled.div`
+	background-color: #989fbc;
+	width: calc((${props=>props.currentPhoto} / ${props=>props.totImg}) * 100%);
+	height: inherit;
 `;
