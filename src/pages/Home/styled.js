@@ -71,6 +71,9 @@ export const Text = styled.p`
 `;
 export const ImageArea = styled.div`
 	margin-bottom: 20px;
+	img {
+		width: 100%;
+	}
 `;
 export const Image = styled.img`
 	width: 100%;

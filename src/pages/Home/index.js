@@ -3,8 +3,7 @@ import {
 		TitleSmall, PageBanner,
 		ContainerSmall, Title,
 		Text, TextContainer,
-		TitleSm, ImageArea,
-		Image, SliderArea,
+		TitleSm, ImageArea,SliderArea,
 		SliderTitle, OptArea,
 		SliderImage, ShareArea,
 		NextPreviousArea, FullSizeArea,
@@ -92,7 +91,7 @@ const Page = ({showMenu, setShowMenu}) => {
 					</TextContainer>
 
 					<ImageArea>
-						<Image src="/assets/image1.webp" alt="Incentivamos a liberdade"/>
+						<img src="/assets/image1.webp" alt="Incentivamos a liberdade"/>
 					</ImageArea>
 
 					<TextContainer>
