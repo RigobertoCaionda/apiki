@@ -1,10 +1,5 @@
 import styled from 'styled-components';
 export const FooterArea = styled.footer`
-	@media(max-width: 600px) {
-		& {
-			display: none;
-		}
-	}
 	.footer-container {
 			width: 1200px;
 		}
@@ -69,5 +64,40 @@ export const FooterArea = styled.footer`
 		justify-content: center;
 		color: #a8a8a8;
 		padding: 35px 0 40px 0;
+	}
+
+	@media(max-width: 600px) {
+		
+		& {
+			.footer-bottom {
+				font-size: 0.8rem;
+				text-align: center;
+			}
+			.footer-container {
+				padding-left: 17px;
+				padding-right: 17px;
+				width: 100%;
+				.bottom {
+					flex-direction: column;
+					.address {
+						width: 100%;
+						margin-bottom: 40px;
+						.address-title {
+							font-size: 1.1rem;
+						}
+					}
+				}
+				.top {
+					flex-direction: column;
+					align-items: flex-start;
+					justify-content: flex-start;
+					.leftSide {
+						width: 140px;
+						margin-bottom: 20px;
+					}
+
+				}
+			}
+		}
 	}
 `;

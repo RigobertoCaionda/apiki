@@ -1,10 +1,10 @@
 import {Switch, Route} from 'react-router-dom';
 import Home from './pages/Home';
-const Page = () => {
+const Page = ({showMenu, setShowMenu}) => {
 	return (
 			<Switch>
 				<Route exact path="/">
-					<Home />
+					<Home showMenu={showMenu} setShowMenu={setShowMenu}/>
 				</Route>
 
 				<Route>

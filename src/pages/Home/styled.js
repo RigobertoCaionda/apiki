@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 export const Container = styled.div`
 	@media(max-width: 600px) {
-		& {
-			display: none;
-		}
+		padding: 0 5px;
 	}
 `;
 export const PageBanner = styled.div`
@@ -14,20 +12,45 @@ export const PageBanner = styled.div`
 	color: #fff;
 	height: 310px;
 	background-color: #009cde;
+	@media(max-width: 600px) {
+		& {
+			padding: 40px;
+		}
+	}
 `;
 export const TitleBig = styled.h1`
 	margin-bottom: 20px;
 	font-size: 3.1rem;
+	@media(max-width: 600px) {
+		& {
+			font-size: 2.2rem;
+			color: ${props=>props.showMenu ? 'transparent' : '#fff'};
+		}
+	}
 `;
 export const TitleSmall = styled.h4`
 	font-weight: normal;
 	font-size: 1rem;
+	@media(max-width: 600px) {
+		& {
+			font-size: 1.6rem;
+			text-align: center;
+			color: ${props=>props.showMenu ? 'transparent' : '#fff'};
+		}
+	}
 `;
 export const ContainerSmall = styled.div`
 	width: 770px;
 	margin-left: 100px;
 	padding-top: 70px;
 	color: #67676b;
+	@media(max-width: 600px) {
+		& {
+			width: 100%;
+			margin-left: 0;
+			padding: 100px 13px 0 13px;
+		}
+	}
 `;
 export const TextContainer = styled.div`
 	margin-bottom: 30px;
@@ -110,6 +133,13 @@ export const FormArea = styled.div`
 	background-color: #f1f1f1;
 	border-radius: 20px;
 	padding: 100px 0 80px 0;
+	@media(max-width: 600px) {
+		& {
+			width: 100%;
+			margin: 120px 0px 40px 0;
+			padding: 20px;
+		}
+	}
 `;
 export const FormTitle1 = styled.h2`
 	color: #808285;
@@ -125,6 +155,12 @@ export const TitlesContainer = styled.div``;
 export const FormContainer = styled.div`
 	width: 850px;
 	margin: auto;
+	@media(max-width: 600px) {
+		& {
+			width: 100%;
+			margin: 0;
+		}
+	}
 `;
 export const Form = styled.form`
 	.buttonInput {
@@ -142,6 +178,15 @@ export const Form = styled.form`
 		}
 		button: hover {
 			background-color: #800080;
+		}
+	}
+	@media(max-width: 600px) {
+		& {
+			.buttonInput {
+				button {
+					width: 75%;
+				}
+			}
 		}
 	}
 `;

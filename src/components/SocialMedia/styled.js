@@ -15,4 +15,9 @@ export const LinkArea = styled.a`
 	&: last-child {
 		margin-right: 0;
 	}
+	@media(max-width: 600px) {
+		width: 45px;
+		height: 45px;
+		margin-right: 15px;
+	}
 `;

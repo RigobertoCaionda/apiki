@@ -1,12 +1,12 @@
-import {HeaderArea, Header, Logo, MenuArea} from './styled';
+import {HeaderArea, Header, Logo, MenuArea, MenuOpener, MenuCloser} from './styled';
 import {PageContainer} from '../../AppStyled';
 import MenuItem from '../MenuItem';
 import {Link} from 'react-router-dom';
-const Page = () => {
+const Page = ({showMenu, setShowMenu}) => {
 	return (
 			<HeaderArea>
 				<PageContainer>
-					<Header>
+					<Header showMenu={showMenu}>
 						<Link to="/" title="Empresa especializada em WordPress">
 							<Logo src="/assets/apiki_logo.png" />
 						</Link>
@@ -26,6 +26,8 @@ const Page = () => {
 							<MenuItem link="/atendimento" title="Atendimento" 
 								description="Assim como fazemos tudo em WordPress, fazemos tudo para atender você."/>
 						</MenuArea>
+						{!showMenu && <MenuOpener onClick={()=>setShowMenu(true)}></MenuOpener>}
+						{showMenu && <MenuCloser onClick={()=>setShowMenu(false)}></MenuCloser>}
 					</Header>
 				</PageContainer>
 			</HeaderArea>

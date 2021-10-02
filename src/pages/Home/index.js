@@ -18,27 +18,25 @@ import {
 		SelectArea, Selects, ProgressBar, Progress
 	} from './styled';
 	import {Link} from 'react-router-dom';
-	import {useState, useRef, useEffect} from 'react';
+	import {useState, useRef} from 'react';
 	import TableRowItem from '../../components/TableRowItem';
-const Page = () => {
+const Page = ({showMenu, setShowMenu}) => {
 	let TotalImages;//Para ser global
+	let currentSlide = useRef(0);//Eu podia simplesmente colocar que currentSlide = 5, mas coloquei num useRef para que nao seja rerenderizado
 	const [margin, setMargin] = useState(0);
 	const [currentPhoto, setCurrentPhoto] = useState(1);
 	let SliderImgContainerWidth = useRef();//Tamanho da imagem
-	const [totImg, setTotImg] = useState(document.querySelectorAll('.slider--width img').length);//Gambiarra para retornar o numero de imagens que temos
+	const [totImg, setTotImg] = useState(0);
 	const [inputQuantity, setInputQuantity] = useState([0]);
 
-	useEffect(()=>{
-		// eslint-disable-next-line
+	const appearTotalImages = () => {
 		TotalImages = document.querySelectorAll('.slider--width img').length;
 		setTotImg(TotalImages);
-	},[currentPhoto]);/*Se vc nao colocar dentro de um useEffect, vai retornar zero pois quando o codigo 
-		rodar ainda nenhuma imagem tera sido renderizada, so sera renderizada quando vc mudar algum item, 
-		entao eu coloquei ele a monitorar o currentPhoto, desse jeito, sempre que currentPhoto mudar, ele vai 
-		rerenderizar o let TotalImages (Sendo undefined) e depois vai entrar no useEffect e retornar o numero de 
-		imagens*/
+	}
+	setTimeout(()=>{
+		appearTotalImages();//Devo esperar esse tempinho para permitir que as imagens sejam renderizadas, caso contrario retorna 0
+	}, 0.1);
 
-	let currentSlide = useRef(0);//Eu podia simplesmente colocar que currentSlide = 5, mas coloquei num useRef para que nao seja rerenderizado
 	const handleNextClick = () => {
 		currentSlide.current++;
 		setCurrentPhoto(currentPhoto + 1);
@@ -68,8 +66,8 @@ const Page = () => {
 	return (
 			<Container>
 				<PageBanner>
-					<TitleBig>Carreira</TitleBig>
-					<TitleSmall>Chegue mais, vem ser um Apiker!</TitleSmall>
+					<TitleBig showMenu={showMenu}>Carreira</TitleBig>
+					<TitleSmall showMenu={showMenu}>Chegue mais, vem ser um Apiker!</TitleSmall>
 				</PageBanner>
 
 				<ContainerSmall>

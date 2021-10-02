@@ -10,4 +10,13 @@ export const LinkArea = styled.a`
 	&: hover {
 		color: #e36000;
 	}
+
+	@media(max-width: 600px) {
+		& {
+			width: 100%;
+			margin-bottom: 20px;
+			margin-right: 0;
+			font-size: 1rem;
+		}
+	}
 `;
