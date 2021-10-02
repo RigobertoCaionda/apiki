@@ -1,6 +1,11 @@
 import {Link} from 'react-router-dom';
 import {FooterArea} from './styled';
 import SocialMedia from '../SocialMedia';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import YouTubeIcon from '@material-ui/icons/YouTube';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 const Page = () => {
 	return (
 			<FooterArea>
@@ -11,11 +16,16 @@ const Page = () => {
 								<Link to="/"><img src="/assets/apiki_logo2.png" alt="" /></Link>
 							</div>
 							<div className="rightSide">
-								<SocialMedia link="www.facebook.com" icon=""/>
-								<SocialMedia link="www.instagram.com" icon=""/>
-								<SocialMedia link="www.youtube.com" icon=""/>
-								<SocialMedia link="www.twitter.com" icon=""/>
-								<SocialMedia link="www.linkedin.com" icon=""/>
+								<SocialMedia link="www.facebook.com" 
+									icon={<FacebookIcon style={{ color: '#fff'}}/>}/>
+								<SocialMedia link="www.instagram.com" 
+									icon={<InstagramIcon style={{ color: '#fff'}}/>}/>
+								<SocialMedia link="www.youtube.com" 
+									icon={<YouTubeIcon style={{ color: '#fff'}}/>}/>
+								<SocialMedia link="www.twitter.com" 
+									icon={<TwitterIcon style={{ color: '#fff'}}/>}/>
+								<SocialMedia link="www.linkedin.com" 
+									icon={<LinkedInIcon style={{ color: '#fff'}}/>}/>
 							</div>
 						</div>
 						<div className="bottom">

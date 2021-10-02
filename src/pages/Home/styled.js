@@ -95,9 +95,7 @@ export const SliderImage = styled.img`
 	object-fit: cover;
 `;
 export const ShareArea = styled.div`
-	width: 15px;
-	height: 15px;
-	background-color: #000;
+	cursor: pointer;
 `;
 export const NextPreviousArea = styled.div`
 	width: 150px;
@@ -106,13 +104,15 @@ export const NextPreviousArea = styled.div`
 	justify-content: space-between;
 `;
 export const FullSizeArea = styled.div`
-	width: 15px;
-	height: 15px;
-	background-color: #000;
+	cursor: pointer;
 `;
-export const NextButton = styled.div``;
+export const NextButton = styled.div`
+	cursor: pointer;
+`;
 export const NumberArea = styled.div``;
-export const PreviousButton = styled.div``;
+export const PreviousButton = styled.div`
+	cursor: pointer;
+`;
 export const ApikiCodeArea = styled.div`
 	a {
 		text-decoration: none;
@@ -254,12 +254,6 @@ export const InputArea = styled.div`
 				display: flex;
 				align-items: center;
 				div {
-					width: 15px;
-					height: 15px;
-					border-radius: 50%;
-					border: 1px solid #000;
-					text-align: center;
-					line-height: 15px;
 					margin-right: 5px;
 					cursor: pointer;
 				}

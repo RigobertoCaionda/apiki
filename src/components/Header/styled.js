@@ -66,9 +66,6 @@ export const MenuArea = styled.nav`
 `;
 export const MenuOpener = styled.div`
 	display: none;
-	background-color: #529ed7;
-	width: 50px;
-	height: 50px;
 	position: absolute;
 	right: 25px;
 	cursor: pointer;
@@ -85,9 +82,6 @@ export const MenuOpener = styled.div`
 `;
 export const MenuCloser = styled.div`
 	display: none;
-	background-color: #f47c1e;
-	width: 50px;
-	height: 50px;
 	position: absolute;
 	right: 25px;
 	cursor: pointer;

@@ -2,6 +2,8 @@ import {HeaderArea, Header, Logo, MenuArea, MenuOpener, MenuCloser} from './styl
 import {PageContainer} from '../../AppStyled';
 import MenuItem from '../MenuItem';
 import {Link} from 'react-router-dom';
+import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
 const Page = ({showMenu, setShowMenu}) => {
 	return (
 			<HeaderArea>
@@ -26,8 +28,13 @@ const Page = ({showMenu, setShowMenu}) => {
 							<MenuItem link="/atendimento" title="Atendimento" 
 								description="Assim como fazemos tudo em WordPress, fazemos tudo para atender você."/>
 						</MenuArea>
-						{!showMenu && <MenuOpener onClick={()=>setShowMenu(true)}></MenuOpener>}
-						{showMenu && <MenuCloser onClick={()=>setShowMenu(false)}></MenuCloser>}
+						{!showMenu && 
+							<MenuOpener onClick={()=>setShowMenu(true)}>
+								<MenuIcon style={{color: '#1b8dcd', fontSize: '2.7rem'}}/>
+							</MenuOpener>}
+						{showMenu && <MenuCloser onClick={()=>setShowMenu(false)}>
+							<CloseIcon style={{color: '#1b8dcd', fontSize: '2.7rem'}}/>
+						</MenuCloser>}
 					</Header>
 				</PageContainer>
 			</HeaderArea>

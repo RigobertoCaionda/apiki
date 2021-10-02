@@ -1,3 +1,5 @@
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 const Page = ({inputQuantity, setInputQuant, index}) => {
 	const handlePlusClick = () => {
 		inputQuantity.push(index);
@@ -18,10 +20,14 @@ const Page = ({inputQuantity, setInputQuant, index}) => {
 			<td>
 				<div className="plus-less">
 					<div className="plus--button" title="Adicionar linha" 
-						onClick={handlePlusClick}>+</div>
+						onClick={handlePlusClick}>
+							<AddCircleOutlineIcon style={{width: 20, color: '#000'}}/>
+					</div>
 						{inputQuantity.length > 1 &&
 							<div className="less--button" title="Remover linha" 
-							onClick={handleMinusClick}>-</div>
+							onClick={handleMinusClick}>
+								<RemoveCircleOutlineIcon style={{width: 20, color: '#000'}}/>
+							</div>
 						}
 						
 				</div>

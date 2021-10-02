@@ -20,6 +20,10 @@ import {
 	import {Link} from 'react-router-dom';
 	import {useState, useRef} from 'react';
 	import TableRowItem from '../../components/TableRowItem';
+	import ShareIcon from '@material-ui/icons/Share';
+	import AspectRatioIcon from '@material-ui/icons/AspectRatio';
+	import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+	import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 const Page = ({showMenu, setShowMenu}) => {
 	let TotalImages;//Para ser global
 	let currentSlide = useRef(0);//Eu podia simplesmente colocar que currentSlide = 5, mas coloquei num useRef para que nao seja rerenderizado
@@ -154,13 +158,19 @@ const Page = ({showMenu, setShowMenu}) => {
 							</ProgressBar>
 
 							<OptArea>
-								<ShareArea></ShareArea>
+								<ShareArea><ShareIcon style={{width: 20, color: '#000'}}/></ShareArea>
 								<NextPreviousArea>
-									<PreviousButton onClick={handlePrevClick}>p</PreviousButton>
+									<PreviousButton onClick={handlePrevClick}>
+										<ArrowBackIosIcon style={{width: 20, color: '#000'}}/>
+									</PreviousButton>
 									<NumberArea>{currentPhoto} of {totImg}</NumberArea>
-									<NextButton onClick={handleNextClick}>n</NextButton>
+									<NextButton onClick={handleNextClick}>
+										<ArrowForwardIosIcon style={{width: 20, color: '#000'}}/>
+									</NextButton>
 								</NextPreviousArea>
-								<FullSizeArea></FullSizeArea>
+									<FullSizeArea>
+										<AspectRatioIcon style={{width: 20, color: '#000'}}/>
+									</FullSizeArea>
 							</OptArea>
 							<ApikiCodeArea>
 								<Link to="/apiki_cultura">Código de cultura da Apiki </Link>

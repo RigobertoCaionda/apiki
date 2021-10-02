@@ -8,9 +8,15 @@ export const LinkArea = styled.a`
 	align-items: center;
 	justify-content: center;
 	margin-right: 30px;
+	.MuiSvgIcon-root {
+			font-size: 1.8rem;
+		}
 	&: hover {
 		transform: scale(1.19);
 		background-color: #e9e9e9;
+		.MuiSvgIcon-root {
+			fill: #040404;
+		}
 	}
 	&: last-child {
 		margin-right: 0;
