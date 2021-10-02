@@ -1,5 +1,11 @@
 import styled from 'styled-components';
-export const Container = styled.div``;
+export const Container = styled.div`
+	@media(max-width: 600px) {
+		& {
+			display: none;
+		}
+	}
+`;
 export const PageBanner = styled.div`
 	display: flex;
 	align-items: center;

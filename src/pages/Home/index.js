@@ -19,15 +19,17 @@ import {
 	} from './styled';
 	import {Link} from 'react-router-dom';
 	import {useState, useRef, useEffect} from 'react';
+	import TableRowItem from '../../components/TableRowItem';
 const Page = () => {
 	let TotalImages;//Para ser global
 	const [margin, setMargin] = useState(0);
 	const [currentPhoto, setCurrentPhoto] = useState(1);
-	const [showMinus, setShowMinus] = useState(false);//Se mostra ou nao o botao
-	const [status, setStatus] = useState(false);//Para fazer que o useEffect se atualize sempre que aumentar um tr.
 	let SliderImgContainerWidth = useRef();//Tamanho da imagem
-	const [totImg, setTotImg] = useState(0);//Gambiarra para retornar o numero de imagens que temos
+	const [totImg, setTotImg] = useState(document.querySelectorAll('.slider--width img').length);//Gambiarra para retornar o numero de imagens que temos
+	const [inputQuantity, setInputQuantity] = useState([0]);
+
 	useEffect(()=>{
+		// eslint-disable-next-line
 		TotalImages = document.querySelectorAll('.slider--width img').length;
 		setTotImg(TotalImages);
 	},[currentPhoto]);/*Se vc nao colocar dentro de um useEffect, vai retornar zero pois quando o codigo 
@@ -61,58 +63,6 @@ const Page = () => {
 		let tam = SliderImgContainerWidth.current.clientWidth;
 		let newMargin = currentSlide * tam;
 		setMargin(newMargin);
-	}
-
-	useEffect(()=>{
-		const botaoMais = document.querySelectorAll('.plus-less .plus--button');
-		const botaoMenos = document.querySelectorAll('.plus-less .less--button');
-		botaoMais.forEach((item)=>{
-			item.addEventListener("click", handlePlusClick);
-		});
-
-		botaoMenos.forEach((item)=>{
-			item.addEventListener("click", handleMinusClick);
-		});
-	},[status]);
-
-	const handlePlusClick = () => {
-		setShowMinus(true);
-		setStatus(!status);
-		let table = document.querySelector('table');
-		let tableRow = document.createElement("tr");
-		let td1 = document.createElement("td");
-		let td2 = document.createElement('td');
-		let td3 = document.createElement('td');
-		let input1 = document.createElement("input");
-		let input2 = document.createElement("input");
-		let div = document.createElement("div");
-		let div1 = document.createElement("div");
-		let div2 = document.createElement("div");
-		div.setAttribute("class", "plus-less");
-		div1.setAttribute("class", "plus--button");
-		div1.setAttribute('title', 'Adicionar linha');
-		div2.setAttribute("class", "less--button");
-		div2.setAttribute("title", "Remover linha");
-		div1.textContent = "+";
-		div2.textContent = "-";
-		div.appendChild(div1);
-		div.appendChild(div2);
-		td1.appendChild(input1);
-		td2.appendChild(input2);
-		td3.appendChild(div);
-		tableRow.appendChild(td1);
-		tableRow.appendChild(td2);
-		tableRow.appendChild(td3);
-		table.appendChild(tableRow);
-	}
-
-	const handleMinusClick = (e) => {
-		setStatus();
-		let totalCampos = document.querySelectorAll('.plus-less .plus--button').length;
-		let remTable = e.target.closest('tr');
-		if (totalCampos > 1) {
-			remTable.remove();
-		}
 	}
 
 	return (
@@ -261,19 +211,10 @@ const Page = () => {
 										<th></th>
 									</tr>
 
-									<tr>
-										<td><input type="text" /></td>
-										<td><input type="text" /></td>
-										<td>
-											<div className="plus-less">
-												<div className="plus--button" 
-													title="Adicionar linha">+</div>
-												{showMinus && <div className="less--button" 
-													title="Remover linha">-</div>}
-											</div>
-										</td>
-									</tr>
-
+									{inputQuantity.map((item, key)=>(
+											<TableRowItem setInputQuant={setInputQuantity} 
+												inputQuantity={inputQuantity} key={key} index={key}/>
+										))}
 								</table>
 							</InputArea>
 
