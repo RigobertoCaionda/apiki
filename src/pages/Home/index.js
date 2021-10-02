@@ -140,15 +140,15 @@ const Page = ({showMenu, setShowMenu}) => {
 						<Slider>
 							<SliderWidth margin={margin} total={totImg} className="slider--width">
 								<SliderImgContainer ref={SliderImgContainerWidth}>
-									<SliderImage src="/assets/cocacola1.png" alt=""/>
+									<SliderImage src="/assets/cocacola1.png" alt="coca-cola"/>
 								</SliderImgContainer>
 
 								<SliderImgContainer>
-									<SliderImage src="/assets/mocaLinda.jpg" alt=""/>
+									<SliderImage src="/assets/mocaLinda.jpg" alt="garota do sorvete"/>
 								</SliderImgContainer>
 
 								<SliderImgContainer>
-									<SliderImage src="/assets/tubidy2.png" alt=""/>
+									<img src="/assets/tubidy2.png" alt="tubidy"/>
 								</SliderImgContainer>
 
 							</SliderWidth>
