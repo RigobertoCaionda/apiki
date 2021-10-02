@@ -148,7 +148,7 @@ const Page = ({showMenu, setShowMenu}) => {
 								</SliderImgContainer>
 
 								<SliderImgContainer>
-									<img src="/assets/tubidy2.png" alt="tubidy"/>
+									<SliderImage src="/assets/tubidy2.png" alt="tubidy"/>
 								</SliderImgContainer>
 
 							</SliderWidth>
