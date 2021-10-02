@@ -92,7 +92,7 @@ const Page = ({showMenu, setShowMenu}) => {
 					</TextContainer>
 
 					<ImageArea>
-						<Image src="/assets/image1.webp" />
+						<Image src="/assets/image1.webp" alt="Incentivamos a liberdade"/>
 					</ImageArea>
 
 					<TextContainer>
@@ -140,15 +140,15 @@ const Page = ({showMenu, setShowMenu}) => {
 						<Slider>
 							<SliderWidth margin={margin} total={totImg} className="slider--width">
 								<SliderImgContainer ref={SliderImgContainerWidth}>
-									<SliderImage src="/assets/cocacola1.png" />
+									<SliderImage src="/assets/cocacola1.png" alt=""/>
 								</SliderImgContainer>
 
 								<SliderImgContainer>
-									<SliderImage src="/assets/mocaLinda.jpg" />
+									<SliderImage src="/assets/mocaLinda.jpg" alt=""/>
 								</SliderImgContainer>
 
 								<SliderImgContainer>
-									<SliderImage src="/assets/tubidy2.png" />
+									<SliderImage src="/assets/tubidy2.png" alt=""/>
 								</SliderImgContainer>
 
 							</SliderWidth>
