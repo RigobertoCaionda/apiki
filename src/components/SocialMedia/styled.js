@@ -20,4 +20,9 @@ export const LinkArea = styled.a`
 		height: 45px;
 		margin-right: 15px;
 	}
+	@media (min-width: 768px) and (max-width: 1024px) {
+		width: 50px;
+		height: 50px;
+		margin-right: 10px;
+	}
 `;

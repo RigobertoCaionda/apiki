@@ -3,6 +3,9 @@ export const Container = styled.div`
 	@media(max-width: 600px) {
 		padding: 0 5px;
 	}
+	@media (min-width: 768px) and (max-width: 1024px) {
+		padding: 0 15px;
+	}
 `;
 export const PageBanner = styled.div`
 	display: flex;
@@ -12,11 +15,6 @@ export const PageBanner = styled.div`
 	color: #fff;
 	height: 310px;
 	background-color: #009cde;
-	@media(max-width: 600px) {
-		& {
-			padding: 40px;
-		}
-	}
 `;
 export const TitleBig = styled.h1`
 	margin-bottom: 20px;
@@ -48,7 +46,14 @@ export const ContainerSmall = styled.div`
 		& {
 			width: 100%;
 			margin-left: 0;
-			padding: 100px 13px 0 13px;
+			padding: 30px 13px 0 13px;
+		}
+	}
+	@media(min-width: 768px) and (max-width: 1024px) {
+		& {
+			width: 100%;
+			margin-left: 0;
+			padding: 30px 30px 0 30px;
 		}
 	}
 `;
@@ -136,7 +141,14 @@ export const FormArea = styled.div`
 	@media(max-width: 600px) {
 		& {
 			width: 100%;
-			margin: 120px 0px 40px 0;
+			margin: 20px 0px 5px 0;
+			padding: 20px;
+		}
+	}
+	@media(min-width: 768px) and (max-width: 1024px) {
+		& {
+			width: 100%;
+			margin: 20px 0px 5px 0;
 			padding: 20px;
 		}
 	}
@@ -160,6 +172,10 @@ export const FormContainer = styled.div`
 			width: 100%;
 			margin: 0;
 		}
+	}
+	@media (min-width: 768px) and (max-width: 1024px) {
+		width: 100%;
+		margin: 0;
 	}
 `;
 export const Form = styled.form`
@@ -185,6 +201,17 @@ export const Form = styled.form`
 			.buttonInput {
 				button {
 					width: 75%;
+					padding: 17px 0;
+				}
+			}
+		}
+	}
+	@media (min-width: 768px) and (max-width: 1024px) {
+		& {
+			.buttonInput {
+				button {
+					width: 40%;
+					padding: 17px 0;
 				}
 			}
 		}

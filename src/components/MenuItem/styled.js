@@ -19,4 +19,13 @@ export const LinkArea = styled.a`
 			font-size: 1rem;
 		}
 	}
+
+	@media (min-width: 768px) and (max-width: 1024px) {
+		& {
+			width: 100%;
+			margin-bottom: 20px;
+			margin-right: 0;
+			font-size: 1rem;
+		}
+	}
 `;

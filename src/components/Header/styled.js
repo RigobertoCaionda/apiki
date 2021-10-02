@@ -21,6 +21,17 @@ export const Header = styled.div`
 			padding: 20px 15px;
 		}
 	}
+	@media(min-width: 768px) and (max-width: 1024px) {
+		& {
+			background-color: #fff;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: flex-start;
+			height: ${props=>props.showMenu ? '350px' : '70px'};
+			overflow: hidden;
+			padding: 20px 15px;
+		}
+	}
 `;
 export const Logo = styled.img`
 	width: 130px;
@@ -43,6 +54,15 @@ export const MenuArea = styled.nav`
 			padding-left: 15px;
 		}
 	}
+	@media(min-width: 768px) and (max-width: 1024px) {
+		& {
+			width: 100%;
+			flex-direction: column;
+			align-items: flex-start;
+			margin-top: 15px;
+			padding-left: 15px;
+		}
+	}
 `;
 export const MenuOpener = styled.div`
 	display: none;
@@ -57,6 +77,11 @@ export const MenuOpener = styled.div`
 			display: block;
 		}
 	}
+	@media(min-width: 768px) and (max-width: 1024px) {
+		& {
+			display: block;
+		}
+	}
 `;
 export const MenuCloser = styled.div`
 	display: none;
@@ -67,6 +92,11 @@ export const MenuCloser = styled.div`
 	right: 25px;
 	cursor: pointer;
 	@media(max-width: 600px) {
+		& {
+			display: block;
+		}
+	}
+	@media(min-width: 768px) and (max-width: 1024px) {
 		& {
 			display: block;
 		}
